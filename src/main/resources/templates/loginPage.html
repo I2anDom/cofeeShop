@@ -1,0 +1,41 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Login page</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form th:method="POST" th:action="@{/coffee_shop/login}" th:object="${user}">-->
+<!--    <input type="email" th:field = "*{email}" placeholder="Email">-->
+<!--    <input type="text" th:field = "*{password}" placeholder="Password">-->
+<!--    <input type="submit" value="Login">-->
+<!--</form>-->
+<!--<form th:method="GET" th:action="@{/coffee_shop/registration}">-->
+<!--<input type="submit" value="Register account">-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Spring Security Example </title>
+</head>
+<body>
+<div th:if="${param.error}">
+    Invalid username and password.
+</div>
+<div th:if="${param.logout}">
+    You have been logged out.
+</div>
+<form th:action="@{/coffee_shop/login}" method="POST">
+    <div><label> Email : <input type="text" name="email"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+<form th:method="GET" th:action="@{/coffee_shop/registration}">
+    <input type="submit" value="Register account">
+</form>
+</body>
+</html>
